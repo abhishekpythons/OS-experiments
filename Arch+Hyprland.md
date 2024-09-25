@@ -74,7 +74,8 @@ passwd <username(abhishek)>
 pacman-key --init
 pacman-key --populate archlinux
 pacman -S sudo
-pacan -S nano
+pacman -S nano
+pacman -S networkmanager
 ``` 
 
 ## givng sudoer permission
@@ -95,6 +96,8 @@ pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+make sure you hav installed networkmanager and given sudo access to your user and setted up password also... without yhese 3 thing you wont be ale to access our newly installed setup
 
 ## Exit Chroot and Reboot
 ** Very important to save files properly
