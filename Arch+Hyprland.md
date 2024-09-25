@@ -106,3 +106,24 @@ exit #to exit from chroot environment
 umount -R /mnt #unmount all partition
 reboot
 ```
+
+Remove Installation media i.e. flash drive
+Enter your credentials and connect to internet
+```sh
+systemctl enable --now NetworkManager
+nmtui    #for netwok manager GUI or nmcli for CLI
+```
+conect to network and check using ```ip address```
+
+## Updating Arch and getting required packages
+```sh
+sudo pacman -Syu
+sudo pacman -S --needed base-devel git cmake wayland wayland-protocols xdg-desktop-portal-hyprland wlroots qt5-wayland qt6-wayland vulkan-icd-loader libglvnd
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+yay -S hyprland
+sudo pacman -S xdg-utils xdg-user-dirs grim slurp waybar rofi mako swaylock swaybg sddm polkit-gnome
+sudo systemctl enable sddm
+```
+
