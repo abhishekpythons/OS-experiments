@@ -42,9 +42,10 @@ cfdisk </dev/disk_name(/dev/nvmeon1)>
 ```
 again check using ```lsblk```
 
-format the root partition
+format the root partition and other partitions
 ```sh
 mkfs.ext4 /dev/<root_partition(nvme0n1p2)>
+mkfs.ext4 /dev/<other_partition(nvme0n1p3)>
 ```
 format the EFI partition
 ```sh
@@ -52,11 +53,11 @@ mkfs.fat -F32 /dev/<EFI partition(nvme0n1p1)>
 ```
 make swap partiton and activate it
 ```sh
-mkswap /dev/sdX2
-swapon /dev/sdX2
+mkswap /dev/<swap_partition(nvme0n1p4)>
+swapon /dev/<swap_partition(nvme0n1p4)>
 ```
 
-
+[!partition_image (partitions.jpg)]
 
 Mount EFI and root partitions
 ```sh
