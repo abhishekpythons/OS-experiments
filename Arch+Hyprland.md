@@ -68,14 +68,25 @@ cat /mnt/etc/fstab
 arch-chroot /mnt
 useradd -m -G wheel -s /bin/bash <username(abhishek)>
 passwd <username(abhishek)>
-# givng sudoer permission
-EDITOR=nano visudo
-# uncomment # %wheel ALL=(ALL) ALL to give sudo permission to all users in wheel group
-# save and exit uing Ctrl+S and then Ctrl+X 
 ```
+## settting up keyring and installing sudo package from pacman
+```sh
+pacman-key --init
+pacman-key --populate archlinux
+pacman -S sudo
+pacan -S nano
+``` 
+
+## givng sudoer permission
+```sh
+EDITOR=nano visudo
+```
+uncomment ```# %wheel ALL=(ALL) ALL``` to give sudo permission to all users in wheel group
+save and exit uing Ctrl+S and then Ctrl+X 
 change user using
 ```sh
 su - <username(abhishek)>
 ```
+check permission using ```sudo -i``` and comeback to user agan using previous command
 
 ## installing bootloader
