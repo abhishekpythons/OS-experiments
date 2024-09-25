@@ -167,6 +167,17 @@ Now to automatic start Hyprland on boot we can use display manager like SDDM
 sudo pacman -S sddm
 sudo systemctl enable sddm
 sudo systemctl start sddm
+reboot
 ```
 
 ** Note:- if you got stuck in any dispplay manager and not able to come back use Ctrl+Alt+F3 or Gtrl+Alt+F4. This will change your tty and you will be able to access CLI in that tty **
+
+For more apps install yay and grab some more required apps
+```sh
+sudo pacman -S --needed base-devel git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+yay -S google-chrome visual-studio-code-git
+```
+Here i am downloading chrome and VScode(Microsoft release). you can also use Firefox annd VScode community version from pacman.
