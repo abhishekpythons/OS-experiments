@@ -45,4 +45,35 @@ Mount EFI and root partitions
 mount /dev/<root_partition_name(nvme0n1p2)> /mnt
 mkdir -p /mnt/boot/efi
 mount /dev/<efi_partition name(nvme0n1p1)> /mnt/boot/efi
+lsblk
 ``` 
+
+## Installling Linux and its firmwares
+```sh
+pacstrap /mnt base linux linux-firmware
+```
+then generate and write fstab in /mnt/etc/fstab
+```sh
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+and check /mnt/etc/fstab
+```sh
+cat /mnt/etc/fstab
+```
+
+## Setting up user in arch-chroot 
+```sh
+arch-chroot /mnt
+useradd -m -G wheel -s /bin/bash <username(abhishek)>
+passwd <username(abhishek)>
+# givng sudoer permission
+EDITOR=nano visudo
+# uncomment # %wheel ALL=(ALL) ALL to give sudo permission to all users in wheel group
+# save and exit uing Ctrl+S and then Ctrl+X 
+```
+change user using
+```sh
+su - <username(abhishek)>
+```
+
+## installing bootloader
