@@ -135,12 +135,6 @@ conect to network and check using ```ip address```
 ## Updating Arch and getting required packages
 ```sh
 sudo pacman -Syu
-sudo pacman -S --needed base-devel git cmake wayland wayland-protocols xdg-desktop-portal-hyprland wlroots qt5-wayland qt6-wayland vulkan-icd-loader libglvnd
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-yay -S hyprland
-sudo pacman -S xdg-utils xdg-user-dirs grim slurp waybar rofi mako swaylock swaybg sddm polkit-gnome
-sudo systemctl enable sddm
+sudo pacman -S hyprland kitty
 ```
 
