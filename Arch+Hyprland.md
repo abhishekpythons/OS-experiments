@@ -87,6 +87,19 @@ change user using
 ```sh
 su - <username(abhishek)>
 ```
-check permission using ```sudo -i``` and comeback to user agan using previous command
+check permission using ```sudo -i```
 
 ## installing bootloader
+```sh
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+## Exit Chroot and Reboot
+** Very important to save files properly
+```sh
+exit #to exit from chroot environment
+umount -R /mnt #unmount all partition
+reboot
+```
