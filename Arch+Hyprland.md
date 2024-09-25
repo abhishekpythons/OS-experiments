@@ -28,12 +28,12 @@ lsblk
 ```
 Use following command to change partitions of any disk
 I am creating 4 partition with following details
-|---|---|---|
-|name: nvme0n1p1| size: 500 MiB| type: EFI System| 
-|name: nvme0n1p2| size: 376 GiB| type: Linux root|
-|name: nvme0n1p3| size: 95  GiB| type: Linux filesystem|
-|name: nvme0n1p4| size: 5   GiB| type: Linux swap |
-|---|---|---|ß
+| --- | --- | --- |
+| name: nvme0n1p1 | size: 500 MiB | type: EFI System | 
+| name: nvme0n1p2 | size: 376 GiB | type: Linux root |
+| name: nvme0n1p3 | size: 95  GiB | type: Linux filesystem |
+| name: nvme0n1p4 | size: 5   GiB | type: Linux swap |
+| --- | --- | --- |
 ```sh
 cfdisk </dev/disk_name(/dev/nvmeon1)>
 # use arrows keys to make partitions as your choice
@@ -41,6 +41,22 @@ cfdisk </dev/disk_name(/dev/nvmeon1)>
 # [Quit] to get back to the linux prompt
 ```
 again check using ```lsblk```
+
+format the root partition
+```sh
+mkfs.ext4 /dev/<root_partition(nvme0n1p2)>
+```
+format the EFI partition
+```sh
+mkfs.fat -F32 /dev/<EFI partition(nvme0n1p1)>
+```
+make swap partiton and activate it
+```sh
+mkswap /dev/sdX2
+swapon /dev/sdX2
+```
+
+
 
 Mount EFI and root partitions
 ```sh
