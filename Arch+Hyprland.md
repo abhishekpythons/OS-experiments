@@ -27,6 +27,11 @@ Run follwing command to get a list of all storage devices and their partitions
 lsblk
 ```
 Use following command to change partitions of any disk
+I am creating 4 partition with following details
+1. name: nvme0n1p1; size: 500 MiB; type: EFI System
+1. name: nvme0n1p2; size: 376 GiB; type: Linux root
+1. name: nvme0n1p3; size: 95  GiB; type: Linux filesystem
+1. name: nvme0n1p4; size: 5   GiB; type: Linux swap 
 ```sh
 cfdisk </dev/disk_name(/dev/nvmeon1)>
 # use arrows keys to make partitions as your choice
@@ -34,3 +39,10 @@ cfdisk </dev/disk_name(/dev/nvmeon1)>
 # [Quit] to get back to the linux prompt
 ```
 again check using ```lsblk```
+
+Mount EFI and root partitions
+```sh
+mount /dev/<root_partition_name(nvme0n1p2)> /mnt
+mkdir -p /mnt/boot/efi
+mount /dev/<efi_partition name(nvme0n1p1)> /mnt/boot/efi
+``` 
