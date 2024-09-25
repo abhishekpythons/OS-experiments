@@ -135,6 +135,8 @@ conect to network and check using ```ip address```
 ## Updating Arch and getting required packages
 ```sh
 sudo pacman -Syu
-sudo pacman -S hyprland kitty
+sudo pacman -S hyprland
+sudo pacman -S kitty
+sudo pacman -S gtk3
 ```
 
