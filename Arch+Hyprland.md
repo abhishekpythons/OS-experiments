@@ -10,16 +10,16 @@ connect to your wifi or ethernet
   ```sh
   device list
   station <inteface name(wlan0)> scan
-  station <interface name(wlan0)> get-netwrork
+  station <interface name(wlan0)> get-networks
   station <interfacee name(wlan0)> connect <network name(IIST-STUDENT-WIFI)>
-  # then enter password
+  # then enter password( it will not appear just typeand press enter)
   exit
   ```
 check network
   ```sh
   ip address
   ```
-  this shoul be UP and a valid IP should be assiggned to your PC
+  this should be UP and a valid IP should be assiggned to your PC
 
 ## Creating Partitions
 Run follwing command to get a list of all storage devices and their partitions
@@ -105,7 +105,7 @@ uncomment ```# %wheel ALL=(ALL) ALL``` to give sudo permission to all users in w
 save and exit uing Ctrl+S and then Ctrl+X 
 change user using
 ```sh
-su - <username(abhishek)>
+su <username(abhishek)>
 ```
 check permission using ```sudo -i```
 
@@ -116,7 +116,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-make sure you hav installed networkmanager and given sudo access to your user and setted up password also... without yhese 3 thing you wont be ale to access our newly installed setup
+make sure you have installed networkmanager and given sudo access to your user and setted up password also... without yhese 3 thing you wont be ale to access our newly installed setup
 
 ## Exit Chroot and Reboot
 ** Very important to save files properly
