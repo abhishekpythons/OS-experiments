@@ -159,7 +159,7 @@ press Win+M to quit Hyprland
 
 Our Arch+Hyprland setup is ready. Now to make it more attractive we can install packages like hyprpaper, waybar, and etc. 
 ```sh
-sudo pacman -S waybar hyprpaper nautilus code
+sudo pacman -S waybar hyprpaper nautilus rofi alacritty
 ```
 
 Now to automatic start Hyprland on boot we can use display manager like SDDM
