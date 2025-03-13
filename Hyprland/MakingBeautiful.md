@@ -4,8 +4,20 @@ installing waybar
 sudo pacman -S waybar
 ```
 
+# Adding network and bluetooth in waybar
+```
+sudo pacman -S blueman
+sudo pacman -S network-manager-applet
+```
+
+and then add following lines in Hyprland Config (~/.config/hypr/hyprland.conf)
+```
+exec-once = nm-applet --indicator
+exec-once = blueman-applet
+```
+
 # Making Shortcuts
-my shortcuts
+my shortcuts in my Hyprland config file (~/.config/hypr/hyprland.conf)
 ```
 bind = $mainMod, B, exec, google-chrome-stable
 bind = $mainMod, C, exec, code
